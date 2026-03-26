@@ -7,6 +7,11 @@ public class ChannelComunication {
   public ChannelComunication() {
   }
 
+  public ChannelComunication(Long id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
   public Long getId() {
     return id;
   }
