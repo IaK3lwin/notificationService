@@ -12,6 +12,8 @@ public interface NotificationAdapter {
 
   public String getDestination();
 
+  public String getMessage();
+
   public ChannelAdapter getChannel();
 
   public NotificationStatusAdapter getStatus();

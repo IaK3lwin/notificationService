@@ -15,6 +15,7 @@ public class NotificationMapper {
 
         input.getId(),
         input.getDestination(),
+        input.getMessage(),
         input.getCreateDate(),
         channel,
         status);

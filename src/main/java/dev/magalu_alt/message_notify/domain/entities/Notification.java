@@ -5,14 +5,17 @@ import java.time.LocalDateTime;
 public class Notification {
   private Long id;
   private String destination;
+  private String message;
   private LocalDateTime createDate;
   private ChannelComunication channel;
   private NotificationStatus status;
 
-  public Notification(Long id, String destination, LocalDateTime createDate, ChannelComunication channel,
+  public Notification(Long id, String destination, String message, LocalDateTime createDate,
+      ChannelComunication channel,
       NotificationStatus status) {
     this.id = id;
     this.destination = destination;
+    this.message = message;
     this.createDate = createDate;
     this.channel = channel;
     this.status = status;
@@ -56,6 +59,14 @@ public class Notification {
 
   public void setStatus(NotificationStatus status) {
     this.status = status;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 }
