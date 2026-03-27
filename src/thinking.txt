@@ -1,0 +1,16 @@
+Modelagem
+
+Channel:
+  id;
+  type;
+
+Status:
+  id;
+  value;
+
+Notificação:
+  id;
+  channel;
+  status;
+
+
