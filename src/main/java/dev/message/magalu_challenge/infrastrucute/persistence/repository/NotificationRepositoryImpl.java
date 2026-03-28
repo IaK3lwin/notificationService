@@ -1,11 +1,13 @@
 package dev.message.magalu_challenge.infrastrucute.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 import dev.message.magalu_challenge.infrastrucute.persistence.models.NotificationModel;
 
+@Repository
 public class NotificationRepositoryImpl implements NotificationRepository {
 
   @Override
