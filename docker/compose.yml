@@ -1,0 +1,13 @@
+services:
+  msql:
+    container_name: db_magalu_notification_service
+    image: mysql:latest
+
+    environment:
+      - 'MYSQL_DATABASE=notification_service'
+      - 'MYSQL_USER=myuser'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+
+    ports:
+      - '3306:3306'
