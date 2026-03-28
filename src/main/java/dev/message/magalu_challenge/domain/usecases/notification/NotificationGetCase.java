@@ -1,8 +1,10 @@
 package dev.message.magalu_challenge.domain.usecases.notification;
 
+import dev.message.magalu_challenge.domain.exceptions.NotificationNoExistException;
 import dev.message.magalu_challenge.domain.io.notification.NotificationOutput;
 import dev.message.magalu_challenge.domain.mappers.NotificationMapper;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
+import dev.message.magalu_challenge.domain.entities.Notification;
 
 public class NotificationGetCase {
   private NotificationRepository repository;
@@ -12,7 +14,15 @@ public class NotificationGetCase {
   }
 
   public NotificationOutput execute(Long id) {
-    return NotificationMapper.toOutput(repository.getWithId(id));
+
+    Notification notification = repository.getWithId(id);
+
+    if (notification == null) {
+      throw new NotificationNoExistException("notification with " + id + "don't exist", "Get notification case");
+
+    }
+
+    return NotificationMapper.toOutput(notification);
   }
 
 }
