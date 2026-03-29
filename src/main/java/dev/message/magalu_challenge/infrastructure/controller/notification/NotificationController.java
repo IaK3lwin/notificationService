@@ -1,6 +1,7 @@
 package dev.message.magalu_challenge.infrastructure.controller.notification;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,11 @@ public class NotificationController {
 
     createNotifcationCase.execute(notification);
 
+    return ResponseEntity.accepted().build();
+  }
+
+  @GetMapping
+  public ResponseEntity<Void> consultNotication() {
     return ResponseEntity.accepted().build();
   }
 

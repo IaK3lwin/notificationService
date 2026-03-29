@@ -7,8 +7,18 @@ import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 import dev.message.magalu_challenge.infrastructure.persistence.models.NotificationModel;
 
+interface NotificationRepoService extends JpaRepository<NotificationModel, Long> {
+
+}
+
 @Repository
 public class NotificationRepositoryImpl implements NotificationRepository {
+
+  private final NotificationRepoService repository;
+
+  public NotificationRepositoryImpl(NotificationRepoService repository) {
+    this.repository = repository;
+  }
 
   @Override
   public void delete(Long id) {
@@ -45,8 +55,4 @@ public class NotificationRepositoryImpl implements NotificationRepository {
     // TODO Auto-generated method stub
 
   }
-}
-
-interface NotificationRepoService extends JpaRepository<NotificationModel, Long> {
-
 }
