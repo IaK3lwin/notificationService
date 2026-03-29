@@ -1,8 +1,23 @@
 package dev.message.magalu_challenge.adapters.dtos;
 
+import dev.message.magalu_challenge.domain.io.channel.ChannelInput;
+
 public record ChannelDTO(
     Long id,
-    String type) {
+    String type) implements ChannelInput {
+
+  @Override
+  public Long getId() {
+    // TODO Auto-generated method stub
+    return id;
+  }
+
+  @Override
+  public String getType() {
+    // TODO Auto-generated method stub
+    return type;
+  }
+
   public enum Values {
     WHATSAPP((short) 1, "whatsapp"),
     SMS((short) 2, "sms"),

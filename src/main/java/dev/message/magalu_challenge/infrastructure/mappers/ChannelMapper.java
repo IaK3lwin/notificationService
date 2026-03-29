@@ -1,7 +1,7 @@
-package dev.message.magalu_challenge.infrastrucute.mappers;
+package dev.message.magalu_challenge.infrastructure.mappers;
 
 import dev.message.magalu_challenge.domain.entities.Channel;
-import dev.message.magalu_challenge.infrastrucute.persistence.models.ChannelModel;
+import dev.message.magalu_challenge.infrastructure.persistence.models.ChannelModel;
 
 public class ChannelMapper {
   public static ChannelModel toModel(Channel channel) {

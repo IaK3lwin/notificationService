@@ -1,8 +1,23 @@
 package dev.message.magalu_challenge.adapters.dtos;
 
+import dev.message.magalu_challenge.domain.io.status.StatusInput;
+
 public record StatusDTO(
     Long id,
-    String value) {
+    String value) implements StatusInput {
+
+  @Override
+  public Long getId() {
+    // TODO Auto-generated method stub
+    return id;
+  }
+
+  @Override
+  public String getValue() {
+    // TODO Auto-generated method stub
+    return value;
+  }
+
   public enum Values {
     DELIVERED((short) 1, "delivered"),
     PENDENT((short) 2, "pendent"),

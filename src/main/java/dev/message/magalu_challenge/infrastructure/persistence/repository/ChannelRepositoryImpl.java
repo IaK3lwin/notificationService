@@ -1,12 +1,12 @@
-package dev.message.magalu_challenge.infrastrucute.persistence.repository;
+package dev.message.magalu_challenge.infrastructure.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import dev.message.magalu_challenge.domain.entities.Channel;
 import dev.message.magalu_challenge.domain.usecases.repository.ChannelRepository;
-import dev.message.magalu_challenge.infrastrucute.mappers.ChannelMapper;
-import dev.message.magalu_challenge.infrastrucute.persistence.models.ChannelModel;
+import dev.message.magalu_challenge.infrastructure.mappers.ChannelMapper;
+import dev.message.magalu_challenge.infrastructure.persistence.models.ChannelModel;
 
 interface ChannelRepoService extends JpaRepository<ChannelModel, Long> {
 

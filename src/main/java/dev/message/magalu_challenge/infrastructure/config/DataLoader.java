@@ -1,16 +1,16 @@
-package dev.message.magalu_challenge.infrastrucute.config;
+package dev.message.magalu_challenge.infrastructure.config;
 
 import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
-import dev.message.magalu_challenge.infrastrucute.mappers.ChannelMapper;
-import dev.message.magalu_challenge.infrastrucute.mappers.StatusMapper;
-import dev.message.magalu_challenge.infrastrucute.persistence.models.ChannelModel;
-import dev.message.magalu_challenge.infrastrucute.persistence.models.StatusModel;
-import dev.message.magalu_challenge.infrastrucute.persistence.repository.ChannelRepositoryImpl;
-import dev.message.magalu_challenge.infrastrucute.persistence.repository.StatusRepositoryImpl;
+import dev.message.magalu_challenge.infrastructure.mappers.ChannelMapper;
+import dev.message.magalu_challenge.infrastructure.mappers.StatusMapper;
+import dev.message.magalu_challenge.infrastructure.persistence.models.ChannelModel;
+import dev.message.magalu_challenge.infrastructure.persistence.models.StatusModel;
+import dev.message.magalu_challenge.infrastructure.persistence.repository.ChannelRepositoryImpl;
+import dev.message.magalu_challenge.infrastructure.persistence.repository.StatusRepositoryImpl;
 
 @Configuration
 public class DataLoader implements CommandLineRunner {

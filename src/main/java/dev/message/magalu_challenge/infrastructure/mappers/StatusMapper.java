@@ -1,7 +1,7 @@
-package dev.message.magalu_challenge.infrastrucute.mappers;
+package dev.message.magalu_challenge.infrastructure.mappers;
 
 import dev.message.magalu_challenge.domain.entities.Status;
-import dev.message.magalu_challenge.infrastrucute.persistence.models.StatusModel;
+import dev.message.magalu_challenge.infrastructure.persistence.models.StatusModel;
 
 public class StatusMapper {
   public static StatusModel toModel(Status status) {

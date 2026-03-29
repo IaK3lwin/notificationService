@@ -1,4 +1,4 @@
-package dev.message.magalu_challenge.infrastrucute.persistence.models;
+package dev.message.magalu_challenge.infrastructure.persistence.models;
 
 import java.time.LocalDateTime;
 
