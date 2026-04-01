@@ -6,10 +6,10 @@ import dev.message.magalu_challenge.domain.mappers.NotificationMapper;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 import dev.message.magalu_challenge.domain.entities.Notification;
 
-public class NotificationGetCase {
+public class NotificationGetWitIdCase {
   private NotificationRepository repository;
 
-  public NotificationGetCase(NotificationRepository repository) {
+  public NotificationGetWitIdCase(NotificationRepository repository) {
     this.repository = repository;
   }
 
@@ -22,6 +22,7 @@ public class NotificationGetCase {
 
     }
 
+    System.out.println(notification);
     return NotificationMapper.toOutput(notification);
   }
 

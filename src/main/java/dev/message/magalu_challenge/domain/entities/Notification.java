@@ -64,4 +64,9 @@ public class Notification {
     this.channel = channel;
   }
 
+  @Override
+  public String toString() {
+    return "{\n id: " + this.id + "\n destination: " + this.destination + "\n message: " + this.message + "\n " +
+            "createdDate: " + this.createDate + "\n status: " + this.status.toString() + "\n channel: " + this.channel.toString() + "\n }";
+  }
 }

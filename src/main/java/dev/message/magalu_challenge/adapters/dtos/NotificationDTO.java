@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import dev.message.magalu_challenge.domain.io.channel.ChannelInput;
 import dev.message.magalu_challenge.domain.io.notification.NotificationInput;
+import dev.message.magalu_challenge.domain.io.notification.NotificationOutputI;
 import dev.message.magalu_challenge.domain.io.status.StatusInput;
 
 public record NotificationDTO(
@@ -12,7 +13,7 @@ public record NotificationDTO(
     String message,
     LocalDateTime createDate,
     StatusDTO status,
-    ChannelDTO channel) implements NotificationInput {
+    ChannelDTO channel)  implements NotificationInput, NotificationOutputI {
 
   @Override
   public ChannelInput getChannel() {

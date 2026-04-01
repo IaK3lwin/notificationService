@@ -1,6 +1,5 @@
 package dev.message.magalu_challenge.infrastructure.persistence.repository;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
-import dev.message.magalu_challenge.infrastructure.mappers.NotificatioModelMapper;
+import dev.message.magalu_challenge.infrastructure.mappers.NotificationMapper;
 import dev.message.magalu_challenge.infrastructure.persistence.models.NotificationModel;
 
 @Repository
@@ -34,7 +33,7 @@ public class NotificationRepositoryImpl implements NotificationRepository {
     // TODO Auto-generated method stub
     List<NotificationModel> notificationsModel = repository.findAll();
 
-    Stream<Notification> notifications = notificationsModel.stream().map(NotificatioModelMapper::toDomain);
+    Stream<Notification> notifications = notificationsModel.stream().map(NotificationMapper::toDomain);
 
     return notifications.toArray(Notification[]::new);
   }
@@ -46,7 +45,7 @@ public class NotificationRepositoryImpl implements NotificationRepository {
     if (notificationModel.isEmpty()) {
       throw new NotificationNotFound("notificatonRepositoryImpl/getWithId()");
     }
-    return NotificatioModelMapper.toDomain(notificationModel.get());
+    return NotificationMapper.toDomain(notificationModel.get());
   }
 
   @Override
@@ -58,7 +57,7 @@ public class NotificationRepositoryImpl implements NotificationRepository {
   @Override
   public void save(Notification notification) {
     // TODO Auto-generated method stub
-    repository.save(NotificatioModelMapper.toModel(notification));
+    repository.save(NotificationMapper.toModel(notification));
   }
 
   @Override
