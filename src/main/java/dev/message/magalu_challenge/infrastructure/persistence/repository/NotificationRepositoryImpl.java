@@ -2,8 +2,10 @@ package dev.message.magalu_challenge.infrastructure.persistence.repository;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
+import dev.message.magalu_challenge.domain.exceptions.NotificationNotFound;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -40,7 +42,11 @@ public class NotificationRepositoryImpl implements NotificationRepository {
   @Override
   public Notification getWithId(Long id) {
     // TODO Auto-generated method stub
-    return null;
+    Optional<NotificationModel> notificationModel = repository.findById(id);
+    if (notificationModel.isEmpty()) {
+      throw new NotificationNotFound("notificatonRepositoryImpl/getWithId()");
+    }
+    return NotificatioModelMapper.toDomain(notificationModel.get());
   }
 
   @Override

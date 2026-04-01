@@ -4,11 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import dev.message.magalu_challenge.adapters.dtos.NotificationDTO;
 import dev.message.magalu_challenge.domain.usecases.notification.NotificationConsultCase;
@@ -46,6 +42,12 @@ public class NotificationController {
         .map(NotificatioModelMapper::toModel).toList();
 
     return ResponseEntity.ok(notificationsResult);
+  }
+
+  @GetMapp("/{id}")
+  public ResponseEntity getWithId(@PathVariable("id") Long id) {
+
+
   }
 
 }
