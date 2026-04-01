@@ -5,7 +5,7 @@ import java.util.List;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.io.notification.NotificationOutput;
-import dev.message.magalu_challenge.domain.io.notification.NotificationOutputI;
+import dev.message.magalu_challenge.domain.usecases.notification.NotificationCancellationCase;
 import dev.message.magalu_challenge.domain.usecases.notification.NotificationGetWitIdCase;
 import dev.message.magalu_challenge.infrastructure.mappers.NotificationMapper;
 import org.springframework.http.ResponseEntity;
@@ -57,6 +57,16 @@ public class NotificationController {
     System.out.println(notification.getMessage());
 
     return ResponseEntity.ok(NotificationMapper.outputToDomain(notification));
+
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> cancelNlNotification(@PathVariable("id") Long id) {
+    NotificationCancellationCase notificationCancellationCase = new NotificationCancellationCase(repository);
+
+    notificationCancellationCase.execute(id);
+
+    return ResponseEntity.ok().build();
 
   }
 

@@ -4,6 +4,8 @@ import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.entities.Status;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 
+import java.util.Optional;
+
 public class NotificationCancellationCase {
   private NotificationRepository repository;
 

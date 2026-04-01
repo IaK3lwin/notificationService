@@ -40,11 +40,12 @@ public class NotificationRepositoryImpl implements NotificationRepository {
 
   @Override
   public Notification getWithId(Long id) {
-    // TODO Auto-generated method stub
+
     Optional<NotificationModel> notificationModel = repository.findById(id);
     if (notificationModel.isEmpty()) {
       throw new NotificationNotFound("notificatonRepositoryImpl/getWithId()");
     }
+
     return NotificationMapper.toDomain(notificationModel.get());
   }
 
@@ -63,7 +64,7 @@ public class NotificationRepositoryImpl implements NotificationRepository {
   @Override
   public void update(Notification notification) {
     // TODO Auto-generated method stub
-
+    repository.save(NotificationMapper.toModel(notification));
   }
 }
 

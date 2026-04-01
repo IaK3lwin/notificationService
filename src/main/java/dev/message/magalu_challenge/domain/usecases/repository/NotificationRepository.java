@@ -2,6 +2,7 @@ package dev.message.magalu_challenge.domain.usecases.repository;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 
+
 public interface NotificationRepository {
   public Notification getWithId(Long id);
 
