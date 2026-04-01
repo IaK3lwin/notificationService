@@ -1,15 +1,16 @@
 package dev.message.magalu_challenge.infrastructure.persistence.repository;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
+import dev.message.magalu_challenge.infrastructure.mappers.NotificatioModelMapper;
 import dev.message.magalu_challenge.infrastructure.persistence.models.NotificationModel;
-
-interface NotificationRepoService extends JpaRepository<NotificationModel, Long> {
-
-}
 
 @Repository
 public class NotificationRepositoryImpl implements NotificationRepository {
@@ -29,7 +30,11 @@ public class NotificationRepositoryImpl implements NotificationRepository {
   @Override
   public Notification[] getAll() {
     // TODO Auto-generated method stub
-    return null;
+    List<NotificationModel> notificationsModel = repository.findAll();
+
+    Stream<Notification> notifications = notificationsModel.stream().map(NotificatioModelMapper::toDomain);
+
+    return notifications.toArray(Notification[]::new);
   }
 
   @Override
@@ -47,7 +52,7 @@ public class NotificationRepositoryImpl implements NotificationRepository {
   @Override
   public void save(Notification notification) {
     // TODO Auto-generated method stub
-
+    repository.save(NotificatioModelMapper.toModel(notification));
   }
 
   @Override
@@ -55,4 +60,8 @@ public class NotificationRepositoryImpl implements NotificationRepository {
     // TODO Auto-generated method stub
 
   }
+}
+
+interface NotificationRepoService extends JpaRepository<NotificationModel, Long> {
+
 }

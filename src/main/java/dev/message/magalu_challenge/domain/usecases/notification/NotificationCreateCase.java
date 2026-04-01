@@ -7,6 +7,8 @@ import dev.message.magalu_challenge.domain.io.notification.NotificationInput;
 import dev.message.magalu_challenge.domain.mappers.NotificationMapper;
 import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 
+import java.time.LocalDateTime;
+
 public class NotificationCreateCase {
 
   private NotificationRepository repository;
@@ -26,6 +28,8 @@ public class NotificationCreateCase {
     Notification notificationUpdated = NotificationMapper.toDomain(input);
 
     notificationUpdated.setStatus(Status.Values.PENDENT.toStatus());
+
+    notificationUpdated.setCreateDate(LocalDateTime.now());
 
     repository.save(notificationUpdated);
 

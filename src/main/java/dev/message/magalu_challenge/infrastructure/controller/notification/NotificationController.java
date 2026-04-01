@@ -1,5 +1,8 @@
 package dev.message.magalu_challenge.infrastructure.controller.notification;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.message.magalu_challenge.adapters.dtos.NotificationDTO;
+import dev.message.magalu_challenge.domain.usecases.notification.NotificationConsultCase;
 import dev.message.magalu_challenge.domain.usecases.notification.NotificationCreateCase;
+import dev.message.magalu_challenge.infrastructure.mappers.NotificatioModelMapper;
+import dev.message.magalu_challenge.infrastructure.persistence.models.NotificationModel;
 import dev.message.magalu_challenge.infrastructure.persistence.repository.NotificationRepositoryImpl;
 
 @RestController
@@ -33,8 +39,13 @@ public class NotificationController {
   }
 
   @GetMapping
-  public ResponseEntity<Void> consultNotication() {
-    return ResponseEntity.accepted().build();
+  public ResponseEntity<List<NotificationModel>> consultNotication() {
+    NotificationConsultCase consultCase = new NotificationConsultCase(repository);
+
+    List<NotificationModel> notificationsResult = Arrays.stream(consultCase.execute())
+        .map(NotificatioModelMapper::toModel).toList();
+
+    return ResponseEntity.ok(notificationsResult);
   }
 
 }

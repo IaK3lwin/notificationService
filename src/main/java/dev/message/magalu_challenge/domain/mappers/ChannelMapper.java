@@ -6,9 +6,8 @@ import dev.message.magalu_challenge.domain.io.channel.ChannelOutput;
 
 public class ChannelMapper {
   public static Channel toDomain(ChannelInput input) {
-    return new Channel(
-        input.getId(),
-        input.getType());
+
+    return Channel.Values.valueOf(input.getType().toUpperCase()).toChannel();
 
   }
 

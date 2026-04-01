@@ -10,6 +10,7 @@ public class NotificationMapper {
   public static Notification toDomain(NotificationInput input) {
 
     Status status = StatusMapper.toDomain(input.getStatus());
+    // TODO: corrigir implementação do criação do channel
     Channel channel = ChannelMapper.toDomain(input.getChannel());
 
     return new Notification(input.getId(), input.getDestination(),
