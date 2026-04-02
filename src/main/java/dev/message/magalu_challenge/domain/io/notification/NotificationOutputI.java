@@ -9,7 +9,7 @@ public interface NotificationOutputI {
 
   public ChannelInput getChannel();
 
-  public LocalDateTime getCreateDate();
+  public LocalDateTime getSendDate();
 
   public String getDestination();
 

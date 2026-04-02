@@ -11,43 +11,37 @@ public record NotificationDTO(
     Long id,
     String destination,
     String message,
-    LocalDateTime createDate,
+    LocalDateTime sendDate,
     StatusDTO status,
     ChannelDTO channel)  implements NotificationInput, NotificationOutputI {
 
   @Override
   public ChannelInput getChannel() {
-    // TODO Auto-generated method stub
     return channel;
   }
 
   @Override
-  public LocalDateTime getCreateDate() {
-    // TODO Auto-generated method stub
-    return createDate;
+  public LocalDateTime getSendDate() {
+    return sendDate;
   }
 
   @Override
   public String getDestination() {
-    // TODO Auto-generated method stub
     return destination;
   }
 
   @Override
   public Long getId() {
-    // TODO Auto-generated method stub
     return id;
   }
 
   @Override
   public String getMessage() {
-    // TODO Auto-generated method stub
     return message;
   }
 
   @Override
   public StatusInput getStatus() {
-    // TODO Auto-generated method stub
     return status;
   }
 

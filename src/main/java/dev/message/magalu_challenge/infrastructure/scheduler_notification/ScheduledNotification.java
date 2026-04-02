@@ -1,7 +1,6 @@
-package dev.message.magalu_challenge.infrastructure;
+package dev.message.magalu_challenge.infrastructure.scheduler_notification;
 
 import dev.message.magalu_challenge.domain.usecases.notification.NotificationSendCase;
-import dev.message.magalu_challenge.domain.usecases.repository.NotificationRepository;
 import dev.message.magalu_challenge.infrastructure.persistence.repository.NotificationRepositoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,20 +14,21 @@ import java.util.concurrent.TimeUnit;
 public class ScheduledNotification {
   Logger logger  = LoggerFactory.getLogger(ScheduledNotification.class);
 
-  private NotificationRepository repository;
+  private NotificationRepositoryImpl repository;
 
-  public ScheduledNotification(NotificationRepository repository) {
+  public ScheduledNotification(NotificationRepositoryImpl repository) {
     this.repository = repository;
   }
 
   @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
   public void runTasksNotification() {
+
     LocalDateTime hour = LocalDateTime.now();
     logger.info("Running at {}", hour);
 
     NotificationSendCase notificationSendCase = new NotificationSendCase(repository);
 
     notificationSendCase.execute(hour);
-
   }
+
 }

@@ -14,7 +14,7 @@ public class NotificationMapper {
     Channel channel = ChannelMapper.toDomain(input.getChannel());
 
     return new Notification(input.getId(), input.getDestination(),
-        input.getMessage(), input.getCreateDate(),
+        input.getMessage(), input.getSendDate(),
         status, channel);
 
   }
@@ -24,7 +24,7 @@ public class NotificationMapper {
         notification.getId(),
         notification.getDestination(),
         notification.getMessage(),
-        notification.getCreateDate(),
+        notification.getSendDate(),
         notification.getStatus(),
         notification.getChannel());
   }

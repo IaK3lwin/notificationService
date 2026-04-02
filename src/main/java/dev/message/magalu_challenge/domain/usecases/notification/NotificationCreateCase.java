@@ -29,7 +29,7 @@ public class NotificationCreateCase {
 
     notificationUpdated.setStatus(Status.Values.PENDENT.toStatus());
 
-    notificationUpdated.setCreateDate(LocalDateTime.now());
+    notificationUpdated.setSendDate(LocalDateTime.now());
 
     repository.save(notificationUpdated);
 

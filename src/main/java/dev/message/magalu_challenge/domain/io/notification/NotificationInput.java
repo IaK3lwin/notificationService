@@ -12,7 +12,7 @@ public interface NotificationInput {
 
   public String getMessage();
 
-  public LocalDateTime getCreateDate();
+  public LocalDateTime getSendDate();
 
   public StatusInput getStatus();
 

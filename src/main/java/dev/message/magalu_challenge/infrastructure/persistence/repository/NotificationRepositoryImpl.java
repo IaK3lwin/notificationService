@@ -1,14 +1,12 @@
 package dev.message.magalu_challenge.infrastructure.persistence.repository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import dev.message.magalu_challenge.domain.entities.Status;
 import dev.message.magalu_challenge.domain.exceptions.NotificationNotFound;
+import dev.message.magalu_challenge.infrastructure.persistence.models.StatusModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -73,8 +71,8 @@ public class NotificationRepositoryImpl implements NotificationRepository {
 
   @Override
   public List<Notification> getNotificationStatusPendentOrError(LocalDateTime hour) {
-    List<NotificationModel> notifications = repository.findByStatusInAndDateTimeBefore(
-            List.of(Status.Values.PENDENT.toStatus(), Status.Values.ERROR.toStatus()),
+    List<NotificationModel> notifications = repository.findByStatusInAndSendDateBefore(
+            List.of(StatusModel.Values.PENDENT.toStatus(), StatusModel.Values.ERROR.toStatus()),
             hour
     );
 
@@ -84,5 +82,5 @@ public class NotificationRepositoryImpl implements NotificationRepository {
 
 interface NotificationRepoService extends JpaRepository<NotificationModel, Long> {
 
-   List<NotificationModel> findByStatusInAndDateTimeBefore(List<Status> status, LocalDateTime hour);
+   public List<NotificationModel> findByStatusInAndSendDateBefore(List<StatusModel> status, LocalDateTime hour);
 }

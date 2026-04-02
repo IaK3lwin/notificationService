@@ -11,7 +11,7 @@ public class NotificationMapper {
         notification.getId(),
         notification.getDestination(),
         notification.getMessage(),
-        notification.getCreateDate(),
+        notification.getSendDate(),
         StatusMapper.toModel(notification.getStatus()),
         ChannelMapper.toModel(notification.getChannel()));
 
@@ -22,7 +22,7 @@ public class NotificationMapper {
         model.getId(),
         model.getDestination(),
         model.getMessage(),
-        model.getCreateDate(),
+        model.getSendDate(),
         StatusMapper.toDomain(model.getStatus()),
         ChannelMapper.toDomain(model.getChannel()));
   }
@@ -33,7 +33,7 @@ public class NotificationMapper {
             output.getId(),
             output.getDestination(),
             output.getMessage(),
-            output.getCreateDate(),
+            output.getSendDate(),
             StatusMapper.outputToDomain(output.getStatus()),
             ChannelMapper.outputToDomain(output.getChannel())
             );

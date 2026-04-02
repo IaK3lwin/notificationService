@@ -66,7 +66,7 @@ public class NotificationController {
 
     notificationCancellationCase.execute(id);
 
-    return ResponseEntity.ok().build();
+    return ResponseEntity.noContent().build();
 
   }
 

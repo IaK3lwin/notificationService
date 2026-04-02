@@ -13,7 +13,7 @@ public record NotificationOutput (
     Long id,
     String destination,
     String message,
-    LocalDateTime createDate,
+    LocalDateTime sendDate,
     Status status,
     Channel channel) implements NotificationInput, NotificationOutputI{
 
@@ -24,9 +24,9 @@ public record NotificationOutput (
   }
 
   @Override
-  public LocalDateTime getCreateDate() {
+  public LocalDateTime getSendDate() {
     // TODO Auto-generated method stub
-    return createDate;
+    return sendDate;
   }
 
   @Override

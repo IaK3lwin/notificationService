@@ -17,22 +17,9 @@ public class NotificationModel {
   @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
 
-  public NotificationModel() {
-  }
-
-  public NotificationModel(Long id, String destination, String message, LocalDateTime createDate, StatusModel status,
-      ChannelModel channel) {
-    this.id = id;
-    this.destination = destination;
-    this.message = message;
-    this.createDate = createDate;
-    this.status = status;
-    this.channel = channel;
-  }
-
   String destination;
   String message;
-  LocalDateTime createDate;
+  LocalDateTime sendDate;
 
   @ManyToOne
   @JoinColumn(name = "status_id")
@@ -41,6 +28,19 @@ public class NotificationModel {
   @ManyToOne
   @JoinColumn(name = "channel_id")
   ChannelModel channel;
+
+  public NotificationModel() {
+  }
+
+  public NotificationModel(Long id, String destination, String message, LocalDateTime createDate, StatusModel status,
+                           ChannelModel channel) {
+    this.id = id;
+    this.destination = destination;
+    this.message = message;
+    this.sendDate = createDate;
+    this.status = status;
+    this.channel = channel;
+  }
 
   public Long getId() {
     return id;
@@ -66,12 +66,12 @@ public class NotificationModel {
     this.message = message;
   }
 
-  public LocalDateTime getCreateDate() {
-    return createDate;
+  public LocalDateTime getSendDate() {
+    return sendDate;
   }
 
-  public void setCreateDate(LocalDateTime createDate) {
-    this.createDate = createDate;
+  public void setSendDate(LocalDateTime createDate) {
+    this.sendDate = createDate;
   }
 
   public StatusModel getStatus() {

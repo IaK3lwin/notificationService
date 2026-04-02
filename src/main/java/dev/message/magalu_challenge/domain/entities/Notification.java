@@ -6,16 +6,16 @@ public class Notification {
   private Long id;
   private String destination;
   private String message;
-  private LocalDateTime createDate;
+  private LocalDateTime sendDate;
   private Status status;
   private Channel channel;
 
-  public Notification(Long id, String destination, String message, LocalDateTime createDate, Status status,
+  public Notification(Long id, String destination, String message, LocalDateTime sendDate, Status status,
       Channel channel) {
     this.id = id;
     this.destination = destination;
     this.message = message;
-    this.createDate = createDate;
+    this.sendDate = sendDate;
     this.status = status;
     this.channel = channel;
   }
@@ -40,12 +40,12 @@ public class Notification {
     this.message = message;
   }
 
-  public LocalDateTime getCreateDate() {
-    return createDate;
+  public LocalDateTime getSendDate() {
+    return sendDate;
   }
 
-  public void setCreateDate(LocalDateTime createDate) {
-    this.createDate = createDate;
+  public void setSendDate(LocalDateTime sendDate) {
+    this.sendDate = sendDate;
   }
 
   public Status getStatus() {
@@ -67,6 +67,6 @@ public class Notification {
   @Override
   public String toString() {
     return "{\n id: " + this.id + "\n destination: " + this.destination + "\n message: " + this.message + "\n " +
-            "createdDate: " + this.createDate + "\n status: " + this.status.toString() + "\n channel: " + this.channel.toString() + "\n }";
+            "createdDate: " + this.sendDate + "\n status: " + this.status.toString() + "\n channel: " + this.channel.toString() + "\n }";
   }
 }
