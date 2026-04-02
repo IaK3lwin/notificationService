@@ -23,9 +23,9 @@ public class Status {
 
   public enum Values {
     DELIVERED((short) 1, "delivered"),
-    PENDENT((short) 2, "pendent"),
+    PENDENT((short) 2, "pending"),
     ERROR((short) 3, "error"),
-    CANCELLED((short) 4, "cancelled");
+    CANCELLED((short) 4, "canceled");
 
     private short id;
     private String value;

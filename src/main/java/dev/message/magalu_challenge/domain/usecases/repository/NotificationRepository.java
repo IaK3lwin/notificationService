@@ -2,6 +2,10 @@ package dev.message.magalu_challenge.domain.usecases.repository;
 
 import dev.message.magalu_challenge.domain.entities.Notification;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 
 public interface NotificationRepository {
   public Notification getWithId(Long id);
@@ -15,4 +19,6 @@ public interface NotificationRepository {
   public void update(Notification notification);
 
   public Notification getWithMessage(String message);
+
+  List<Notification> getNotificationStatusPendentOrError(LocalDateTime hour);
 }
